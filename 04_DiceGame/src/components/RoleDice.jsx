@@ -1,7 +1,6 @@
-import { useState } from "react";
+import styled from "styled-components";
 
-function RoleDice() {
-  const [currentDice, setCurrentDice] = useState(1);
+function RoleDice({currentDice, setCurrentDice}) {
 
   const generateRandomNumber = (min, max)=>{
     return Math.floor(Math.random()*(max - min)+min);
