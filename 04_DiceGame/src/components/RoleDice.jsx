@@ -1,16 +1,6 @@
 import styled from "styled-components";
 
-function RoleDice({currentDice, setCurrentDice}) {
-
-  const generateRandomNumber = (min, max)=>{
-    return Math.floor(Math.random()*(max - min)+min);
-  };
-
-const roleDice = ()=>{
-  const randomNumber = generateRandomNumber(1, 7);
-
-  setCurrentDice((prev)=>randomNumber);
-}
+function RoleDice({currentDice, roleDice}) {
 
   return (
     <DiceContainer>
