@@ -8,7 +8,8 @@ function Products() {
             <input type="search" placeholder='Search-Products' />
         </div>
         <nav>
-            <Link to='featured'>Featured</Link>
+            <Link to='/products/featured'>Featured</Link>
+            {/* <Link to='featured'>Featured</Link> */}
             <Link to='new'>new</Link>
         </nav>
         <Outlet/>
