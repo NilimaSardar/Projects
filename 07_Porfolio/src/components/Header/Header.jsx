@@ -1,6 +1,8 @@
 import React from 'react'
 import styled from 'styled-components'
 import {NavLink} from 'react-router-dom'
+import { FaBars } from "react-icons/fa6";
+
 
 function Header() {
     const navLinkStyles = ({isActive}) =>{
@@ -29,6 +31,9 @@ function Header() {
                     <li>Contact</li>
                 </NavLink>
             </ul>
+            {/* <div className='menu-icon'>
+            <FaBars />
+            </div> */}
         </nav>
     </HeaderSec>
   )
@@ -38,6 +43,7 @@ export default Header
 
 
 const HeaderSec = styled.header`
+padding: 0 70px;
     background-color: #72b572;
     display: flex;
     justify-content: space-between;

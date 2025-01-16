@@ -1,9 +1,20 @@
 import React from 'react'
+import styled from 'styled-components'
 
 function Contact() {
   return (
-    <div>Contact Page</div>
+    <ContactSection>
+      <h1>Contact Page</h1>
+    </ContactSection>
   )
 }
 
 export default Contact
+
+
+const ContactSection = styled.div`
+  width: 100%;
+  height: calc(100vh - 64.4px);
+  display: grid;
+  place-items: center;
+`;
