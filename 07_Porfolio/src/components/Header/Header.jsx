@@ -43,7 +43,7 @@ export default Header
 
 
 const HeaderSec = styled.header`
-padding: 0 70px;
+    padding: 0 70px;
     background-color: #72b572;
     display: flex;
     justify-content: space-between;
