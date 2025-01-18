@@ -17,5 +17,6 @@ const Button_part = styled.div`
         font-size: 18px;
         border-radius: 20px;
         background-color: ${(props)=>props.color? '#72b572':'none'};
+        cursor: pointer;
     }
 `;
