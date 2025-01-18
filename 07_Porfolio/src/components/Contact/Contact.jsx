@@ -14,7 +14,7 @@ export default Contact
 
 const ContactSection = styled.div`
   width: 100%;
-  height: calc(100vh - 64.4px);
+  height: calc(100vh - 80px);
   display: grid;
   place-items: center;
 `;

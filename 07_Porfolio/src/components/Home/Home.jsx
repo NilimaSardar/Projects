@@ -12,7 +12,7 @@ function Home() {
                 <span>NILIMA</span>
                 <h2>Frontend Developer</h2>
                 <div className='button'>
-                  <Button text='Download CV' icon={<MdOutlineFileDownload fontSize='20px'/>}/>
+                  <Button color='color' text='Download CV' icon={<MdOutlineFileDownload fontSize='20px'/>}/>
                   <Button text='About Me'/>
                 </div>
             </div>
@@ -37,7 +37,7 @@ const HomePage = styled.div`
         justify-content: space-between;
         /* background-color: red; */
         padding: 100px;
-        height: calc(100vh - 64.4px);
+        height: calc(100vh - 80px);
 
       }
       .intro{

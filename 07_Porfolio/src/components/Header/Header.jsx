@@ -14,7 +14,7 @@ function Header() {
   return (
     <HeaderSec>
         <div className='logo'>
-            <p>NILIMA</p>
+            <p>N..</p>
         </div>
         <nav>
             <ul>
@@ -48,17 +48,19 @@ const HeaderSec = styled.header`
     display: flex;
     justify-content: space-between;
     align-items: center;
+    height: 80px;
 
     .logo{
-        font-size: 24px;
-        font-weight: 600;
+        font-size: 45px;
+        font-weight: 500;
         letter-spacing: 2px;
         padding: 5px;
+        font-family: "Caveat";
     }
-    .logo p::first-letter{
+    /* .logo p::first-letter{
         font-size: 36px;
         font-weight: 500;
-    }
+    } */
 
     nav ul{
         display: flex;
