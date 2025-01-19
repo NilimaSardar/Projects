@@ -9,17 +9,18 @@ import { FaGithubSquare } from "react-icons/fa";
 function About() {
   return (
     <AboutSection>
-      <div className='about-sections'>
         <div className='about-section'>
           <h1>About ME</h1>
-          <p>
-            Motivated BCA student seeking an internship to apply and enhance technical
-            knowledge. Experienced in developing projects like a Typing Speed Test and 
-            a Pet Store platform, with a focus on creating responsive and user-friendly 
-            web applications. Eager to contribute to innovative teams and gain hands-on 
-            industry experience.
-          </p>
-
+          <div className='about-intro'>
+            <p>
+              I am BCA student seeking an internship to apply and enhance technical
+              knowledge. Experienced in developing projects like a Typing Speed Test and 
+              a Pet Store platform, with a focus on creating responsive and user-friendly 
+              web applications. Eager to contribute to innovative teams and gain hands-on 
+              industry experience.
+            </p>
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSWxPddyIliLsYHygk-laKxRDBTP15BxsrcNg&s" alt="" />
+          </div>
             <div className='enhance'>
             <div className='education'>
               <h2>Education</h2>
@@ -52,8 +53,6 @@ function About() {
             </div>
             </div>
         </div>
-
-      </div>
     </AboutSection>
   )
 }
@@ -67,6 +66,22 @@ const AboutSection = styled.div`
   place-items: center;
   padding: 30px 100px;
   letter-spacing: 1px;
+
+  .about-section{
+      height: 100vh;
+  }
+
+  .about-section .about-intro{
+    display: flex;
+    justify-content: space-between;
+  }
+  .about-section p{
+    width: 50%;
+    text-align: justify;
+  }
+  .about-section img{
+    width: 40%;
+  }
 
   .enhance{
     display: flex;
