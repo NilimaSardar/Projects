@@ -1,76 +1,65 @@
-import React from 'react'
-import styled from 'styled-components'
+import React, { useState, useEffect } from 'react';
+import styled from 'styled-components';
 import Button from '../Home/Button';
 
-function Content({heading, paragraph, items=[]}) {
+function Content({ heading, paragraph, items = [], images = [] }) {
+  const [currentImage, setCurrentImage] = useState(images[0]); // Start with the first image
+  const [imageIndex, setImageIndex] = useState(0);
+
+  // Cycle through the images using an interval
+  useEffect(() => {
+    if (images.length > 1) {
+      const interval = setInterval(() => {
+        setImageIndex((prevIndex) => (prevIndex + 1) % images.length); // Loop back to start
+      }, 3000); // Change every 3 seconds
+      return () => clearInterval(interval); // Clear interval on unmount
+    }
+  }, [images]);
+
+  // Update the current image when the index changes
+  useEffect(() => {
+    setCurrentImage(images[imageIndex]);
+  }, [imageIndex, images]);
+
   return (
-    <ContentSection>
-        <div className='image'></div>
-        <div className='content'>
-            <h3>{heading}</h3>
-            <p>{paragraph}</p>
-            <div className='tool-used'>
-                <ul>
-                    {items.map((item, index) => (
-                    <li key={index}>{item}</li>
-                    ))}
-                </ul>
-            </div>
-            <div className='button-used'>
-                <Button text='VIEW LIVE' color='color'/>
-                <Button text='GITHUB' color='color'/>
-            </div>
+    <ContentSection style={{ backgroundImage: `url(${currentImage})` }}>
+      <div className="content">
+        <h3>{heading}</h3>
+        <p>{paragraph}</p>
+        <div className="tool-used">
+          <ul>
+            {items.map((item, index) => (
+              <li key={index}>{item}</li>
+            ))}
+          </ul>
         </div>
+        <div className="button-used">
+          <Button text="VIEW LIVE" color="color" />
+          <Button text="GITHUB" color="color" />
+        </div>
+      </div>
     </ContentSection>
-  )
+  );
 }
 
-export default Content
+export default Content;
 
 const ContentSection = styled.div`
-    width: 70%;
-    height: auto;
-    position: relative;
-    margin: 30px 0;
-  
-  .image{
-    border-radius: 20px;
-    width: 100%;
-    height: 400px;
-    background-image: url("public/Login.png");
-    background-size: 100% 100%;
-    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
-    filter: grayscale(25%);
-    display: block;
-    margin: auto;
-    animation: changeImage 10s ease infinite;
-  }
+  width: 100%;
+  height: 400px;
+  border-radius: 20px;
+  background-size: cover;
+  background-position: center;
+  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+  position: relative;
+  margin: 30px 0;
+  transition: background-image 1s ease; /* Smooth transition between images */
 
-  @keyframes changeImage {
-    0%{
-      background-image: url("public/Images/TypingTest/Home.png");
-    }
-    25%{
-      background-image: url("public/Images/TypingTest/Register.png");
-      
-    }
-    50%{
-      background-image: url("public/Images/TypingTest/Login.png");
-      
-    }
-    75%{
-      background-image: url("public/Images/TypingTest/TypingPage.png");
-      
-    }
-    100%{
-      background-image: url("public/Images/TypingTest/Achievement.png");
-      
-    }
-  }
-
-  .content{
+  .content {
+    padding: 10px;
     width: 100%;
     height: 100%;
+    white-space: wrap;
     position: absolute;
     top: 0;
     left: 0;
@@ -85,42 +74,50 @@ const ContentSection = styled.div`
     opacity: 0;
     transition: 0.6s;
   }
-  .content h3{
+
+  .content h3 {
     font-size: 36px;
   }
-  .content p{
+
+  .content p {
     font-size: 18px;
   }
 
-  .content:hover{
+  .content:hover {
     opacity: 1;
   }
 
-  .content > *{
+  .content > * {
     transform: translateY(25px);
     transition: transform 0.6s;
   }
-  .content:hover > *{
+
+  .content:hover > * {
     transform: translate(0px);
   }
 
-  .content .tool-used ul{
+  .content .tool-used{
+    white-space: wrap;
+
+  }
+  .content .tool-used ul {
     list-style-type: none;
     display: flex;
     justify-content: space-around;
     gap: 10px;
   }
-  .content .tool-used ul li{
+
+  .content .tool-used ul li {
+    flex-shrink: 1;
     background-color: #bbb7b7;
-    color: #FFFFFF;
+    color: #ffffff;
     padding: 5px;
     border-radius: 15px;
   }
 
-  .content .button-used{
+  .content .button-used {
     display: flex;
     gap: 10px;
     margin-top: 5px;
   }
-
 `;
